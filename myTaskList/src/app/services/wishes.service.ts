@@ -1,15 +1,19 @@
 import { Injectable } from '@angular/core';
 import { List } from '../models/list.model';
-import { ConsoleReporter } from 'jasmine';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WishesService {
 
-  lists: List[];
+  lists: List[] = [];
 
-  constructor() { 
-    console.log('Wishes Service Ready');
+  constructor() {
+
+    const list1 = new List('Ejemplo Lista 1');
+    const list2 = new List('Ejemplo Lista 2');
+
+    this.lists.push(list1, list2);
+
   }
 }

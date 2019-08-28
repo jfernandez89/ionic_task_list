@@ -8,6 +8,8 @@ import { WishesService } from 'src/app/services/wishes.service';
 })
 export class Tab2Page {
 
+  tabName: string = 'Terminadas'; 
+
   constructor(public wishes: WishesService) {
     
   }
