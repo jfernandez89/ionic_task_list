@@ -10,15 +10,25 @@ export class WishesService {
 
   constructor() {
 
-    const list1 = new List('Ejemplo Lista 1');
-    const list2 = new List('Ejemplo Lista 2');
-
-    this.lists.push(list1, list2);
+    this.loadStorage();
 
   }
 
   createList(title: string) {
+
     const newList = new List(title);
     this.lists.push(newList);
+
+    this.saveStorage();
+  }
+
+  saveStorage() {
+    localStorage.setItem('data', JSON.stringify(this.lists))
+  }
+
+  loadStorage() {
+    if (localStorage.getItem('data')) {
+      this.lists = JSON.parse(localStorage.getItem('data'));
+    }
   }
 }
