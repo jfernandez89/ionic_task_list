@@ -19,9 +19,6 @@ export class Tab1Page {
   // Transform the method result in to a promise, needed by await option
   async addList() {
 
-    //Navigates from the index
-    //this._router.navigateByUrl('/tabs/tab1/add');
-
     const alert = await this._alertCtrl.create({
       header: 'Nueva Lista',
       inputs: [
@@ -42,13 +39,15 @@ export class Tab1Page {
         {
           text: 'Crear',
           handler: (data) => {
-            console.log('data');
+            
             if (data.title.length === 0) {
               return;
             }
 
-            this.wishes.createList(data.title);
+            const listId = this.wishes.createList(data.title);
 
+            //Navigates from the index to an specific list
+            this._router.navigateByUrl(`/tabs/tab1/add/${listId}`);
           }
         }
       ]

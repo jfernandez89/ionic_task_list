@@ -12,11 +12,10 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: () =>
-              import('../tab1/tab1.module').then(m => m.Tab1PageModule)
+            loadChildren: '../tab1/tab1.module#Tab1PageModule'
           },
           //Show always the component inside of tab1, (addList component)
-          { path: 'add', 
+          { path: 'add/:listId', 
             loadChildren: '../add/add.module#AddPageModule' 
           }
         ]

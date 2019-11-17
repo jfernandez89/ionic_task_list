@@ -14,12 +14,23 @@ export class WishesService {
 
   }
 
-  createList(title: string) {
+  createList(title: string): number {
 
     const newList = new List(title);
     this.lists.push(newList);
 
     this.saveStorage();
+
+    return newList.id;
+  }
+
+  getList(id: number | string): List {
+
+    //Transform the id param to a Number in 
+    id = Number(id);
+
+    return this.lists.find(listData => listData.id === id);
+
   }
 
   saveStorage() {
