@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddPage implements OnInit {
 
+  tabName: string = 'Nombre de la lista';
+
   constructor() { }
 
   ngOnInit() {
