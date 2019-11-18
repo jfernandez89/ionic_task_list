@@ -39,4 +39,22 @@ export class AddPage implements OnInit {
 
   }
 
+  changeChechboxState(item: ListItem) {
+
+    //indicates the number of elements that haven't been completed yet
+    const taskNotCompleted = this.list.items
+      .filter(itemData =>{ return !itemData.completed}).length;
+
+    if(taskNotCompleted === 0){
+      this.list.isFinished = true;
+      this.list.finishedIn = new Date();
+    } else {
+      this.list.isFinished = false;
+      this.list.finishedIn = null;
+    }
+
+    this._wishes.saveStorage();
+    
+  }
+
 }
