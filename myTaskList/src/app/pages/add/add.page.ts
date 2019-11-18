@@ -43,9 +43,9 @@ export class AddPage implements OnInit {
 
     //indicates the number of elements that haven't been completed yet
     const taskNotCompleted = this.list.items
-      .filter(itemData =>{ return !itemData.completed}).length;
+      .filter(itemData => { return !itemData.completed }).length;
 
-    if(taskNotCompleted === 0){
+    if (taskNotCompleted === 0) {
       this.list.isFinished = true;
       this.list.finishedIn = new Date();
     } else {
@@ -54,7 +54,12 @@ export class AddPage implements OnInit {
     }
 
     this._wishes.saveStorage();
-    
+
+  }
+
+  deleteItem(index: number) {
+    this.list.items.splice(index,1);
+    this._wishes.saveStorage();
   }
 
 }
