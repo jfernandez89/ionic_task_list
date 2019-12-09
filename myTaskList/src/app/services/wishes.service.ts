@@ -24,6 +24,12 @@ export class WishesService {
     return newList.id;
   }
 
+  //Filter the list array overwritting its value
+  deleteList(plist: List) {
+    this.lists = this.lists.filter(data => data.id !== plist.id);
+    this.saveStorage();
+  }
+
   getList(id: number | string): List {
 
     //Transform the id param to a Number in 

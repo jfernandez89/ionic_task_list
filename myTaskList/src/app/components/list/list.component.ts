@@ -12,7 +12,6 @@ export class ListComponent implements OnInit {
 
   @Input() isFinished = true;
 
-
   constructor(public wishes: WishesService, private _router: Router) { }
 
   ngOnInit() { }
@@ -24,5 +23,9 @@ export class ListComponent implements OnInit {
     } else {
       this._router.navigateByUrl(`/tabs/tab1/add/${currentList.id}`);
     }
+  }
+
+  deleteList(list: List) {
+    this.wishes.deleteList(list);
   }
 }
