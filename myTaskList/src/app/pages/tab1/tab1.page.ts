@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { WishesService } from '../../services/wishes.service';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { List } from 'src/app/models/list.model';
 
 @Component({
   selector: 'app-tab1',
@@ -13,7 +14,6 @@ export class Tab1Page {
   tabName: string = 'Pendientes';
 
   constructor(public wishes: WishesService, private _router: Router, private _alertCtrl: AlertController) {
-    this.addList();
   }
 
   // Transform the method result in to a promise, needed by await option
@@ -54,5 +54,9 @@ export class Tab1Page {
     });
 
     alert.present();
+  }
+
+  selectedList(currentList :List){
+    this._router.navigateByUrl(`/tabs/tab1/add/${currentList.id}`);
   }
 }
