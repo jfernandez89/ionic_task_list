@@ -12,8 +12,7 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: () =>
-              import('../tab1/tab1.module').then(m => m.Tab1PageModule)
+            loadChildren: '../tab1/tab1.module#Tab1PageModule'
           },
           //Show always the component inside of tab1, (addList component)
           { path: 'add/:listId', 
@@ -26,8 +25,7 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: () =>
-              import('../tab2/tab2.module').then(m => m.Tab2PageModule)
+            loadChildren:'../tab2/tab2.module#Tab2PageModule'
           },
           { path: 'add/:listId', 
             loadChildren: '../add/add.module#AddPageModule' 

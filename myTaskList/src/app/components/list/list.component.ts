@@ -10,7 +10,7 @@ import { List } from 'src/app/models/list.model';
 })
 export class ListComponent implements OnInit {
 
-  @Input() isFinished = true;
+  @Input() finishedFrom = true;
 
   constructor(public wishes: WishesService, private _router: Router) { }
 
@@ -18,7 +18,7 @@ export class ListComponent implements OnInit {
 
   selectedList(currentList: List) {
 
-    if (this.isFinished) {
+    if (this.finishedFrom) {
       this._router.navigateByUrl(`/tabs/tab2/add/${currentList.id}`);
     } else {
       this._router.navigateByUrl(`/tabs/tab1/add/${currentList.id}`);
