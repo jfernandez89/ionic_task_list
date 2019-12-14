@@ -9,7 +9,7 @@ export class FilterPipe implements PipeTransform {
 
   transform(lists: List[], completed: boolean = true): List[] {
 
-    return lists.filter(list => { list.isFinished === completed; });
-
+    return lists.filter(list => list.isFinished === completed);
+    
   }
 }
